@@ -171,26 +171,24 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		
-		
-		if(attrezzo!=null) {
-		String CancellaAttrezzo=attrezzo.getNome();
 		boolean eliminato=false;
 		
-		if(hasAttrezzo(CancellaAttrezzo)!=false) {
-			
-			for(int i=0;i<this.numeroAttrezzi && !eliminato;i++) {
-				if(this.attrezzi[i].getNome().equals(CancellaAttrezzo)) {
-					eliminato=true;
-					for(int j=i;j<this.numeroAttrezzi-1;j++)
-						this.attrezzi[j]=this.attrezzi[j+1];
-				}	
+		if(attrezzo!=null) {
+			String CancellaAttrezzo=attrezzo.getNome();
+		
+			if(hasAttrezzo(CancellaAttrezzo)!=false) {
+				
+				for(int i=0;i<this.numeroAttrezzi && !eliminato;i++) {
+					if(this.attrezzi[i].getNome().equals(CancellaAttrezzo)) {
+						eliminato=true;
+						for(int j=i;j<this.numeroAttrezzi-1;j++)
+							this.attrezzi[j]=this.attrezzi[j+1];
+					}	
+				}
+				this.numeroAttrezzi--;
 			}
-			this.numeroAttrezzi--;
 		}
 		return eliminato;
-		}
-		return false;
 	}
 
 
